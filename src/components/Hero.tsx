@@ -36,8 +36,8 @@ export default function Hero() {
       <div className="flex flex-col gap-4 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold">Zaky Abdurrahman</h1>
         <h2 className="text-xl md:text-2xl text-muted-foreground">Software Engineer | HR &amp; LMS Platforms</h2>
-        <p className="text-base md:text-lg leading-relaxed">
-          I build software that helps people work and learn better. With 2 years of experience in HR and Learning Management Systems, I focus on clean, maintainable code and great user experiences.
+        <p className="text-base md:text-lg text-justify leading-relaxed">
+          I build software that helps people work and learn better. With 2 years of experience developing HR and Learning Management Systems, I focus on clean, maintainable code and intuitive user experiences. I enjoy collaborative work and working closely with others to build solutions that help companies in Indonesia manage talent development and create fair, effective employee performance assessments
         </p>
         <div className="flex flex-col sm:flex-row gap-3 mt-2 justify-center md:justify-start">
           <button
