@@ -1,14 +1,26 @@
-
+import { BrowserRouter, Routes, Route } from 'react-router'
+import Hero from './components/Hero'
+import Projects from './pages/Projects'
 import './App.css'
 
-function App() {
-  
-  
+function Home() {
   return (
-          
-      <h1>ZAKY ABDURRAHMAN</h1>
-    
+    <>
+      <title>zakyabdur.tech</title>
+      <main>
+        <Hero />
+      </main>
+    </>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
