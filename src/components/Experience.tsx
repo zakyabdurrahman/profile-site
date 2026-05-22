@@ -10,16 +10,18 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    company: '',
-    url: 'https://phiraka.com',
-    logo: 'https://phiraka.com/wp-content/themes/phiraka/assets/img/phiraka-logo.svg',
-    roles: [
-      { title: 'Software Engineer', period: '2024–Present' },
-    ],
-    description:
-      'We build HR and Learning Management Software that helps organizations manage their people and training programs. I work across the full stack, building features, improving performance, and maintaining code quality.',
+    company: "",
+    url: "https://phiraka.com",
+    logo: "https://phiraka.com/wp-content/themes/phiraka/assets/img/phiraka-logo.svg",
+    roles: [{ title: "Software Engineer", period: "2024–Present" }],
+    description: `
+        I Developed and maintained mobile and web applications for HRIS and E-Office systems used by enterprise clients, 
+        such as Bank Nano Syariah, Sinarmas, Pertamina Retail, Chemico Indonesia, and Government Organizations. In my time as Software Engineer
+        I worked in developing employee performance asessment system, learning management, and employee monitoring. I always ensure quality,
+        velocity and reliability in developing features and as a result our clients are satisfied with our product
+      `,
   },
-]
+];
 
 function ExperienceCard({ exp }: { exp: Experience }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -64,7 +66,9 @@ function ExperienceCard({ exp }: { exp: Experience }) {
         ))}
       </div>
 
-      <p className="text-base leading-relaxed text-muted-foreground">{exp.description}</p>
+      <p className="text-base leading-relaxed text-muted-foreground text-justify">
+        {exp.description}
+      </p>
     </div>
   )
 }
