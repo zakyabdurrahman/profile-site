@@ -14,6 +14,7 @@ interface Project {
   title: string
   type: 'Work' | 'Personal'
   description: string
+  image?: string
   link: string
   linkLabel: string
 }
@@ -75,9 +76,17 @@ function ProjectCard({ project }: { project: Project }) {
       style={{ opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
       className="rounded-xl border border-border bg-card p-6 md:p-8 h-full flex flex-col gap-4"
     >
-      <div className="aspect-video rounded-lg bg-muted flex items-center justify-center text-muted-foreground text-sm">
-        Screenshot
-      </div>
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          className="aspect-video rounded-lg object-cover w-full"
+        />
+      ) : (
+        <div className="aspect-video rounded-lg bg-muted flex items-center justify-center text-muted-foreground text-sm">
+          Screenshot
+        </div>
+      )}
 
       <div className="flex items-center gap-3">
         <Badge
@@ -190,7 +199,7 @@ export default function Projects() {
     >
       <h2 className="text-2xl md:text-3xl font-bold text-center">Projects</h2>
 
-      <div className="max-w-xl mx-auto mt-8">
+      <div className="max-w-7xl mx-auto mt-8">
         <Carousel
           opts={{ loop: true }}
           plugins={[

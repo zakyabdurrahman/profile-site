@@ -20,7 +20,11 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      style={{ opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
+      style={{
+        opacity: 0,
+        transform: "translateY(20px)",
+        transition: "opacity 0.5s ease, transform 0.5s ease",
+      }}
       className="flex flex-col md:flex-row items-center gap-8 px-6 py-16 max-w-5xl mx-auto"
     >
       {/* Photo */}
@@ -35,19 +39,29 @@ export default function Hero() {
       {/* Bio */}
       <div className="flex flex-col gap-4 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold">Zaky Abdurrahman</h1>
-        <h2 className="text-xl md:text-2xl text-muted-foreground">Software Engineer | HR &amp; LMS Platforms</h2>
+        <h2 className="text-xl md:text-2xl text-muted-foreground">
+          Software Engineer | HR &amp; LMS Platforms
+        </h2>
         <p className="text-base md:text-lg text-justify leading-relaxed">
-          I build software that helps people work and learn better. With 2 years of experience developing HR and Learning Management Systems, I focus on clean, maintainable code and intuitive user experiences. I enjoy collaborative work and working closely with others to build solutions that help companies in Indonesia manage talent development and create fair, effective employee performance assessments
+          I build software that helps people work and learn better. With 2 years
+          of experience developing HR and Learning Management Systems, I focus
+          on clean, maintainable code and intuitive user experiences. I enjoy
+          collaborative work and working closely with others to build solutions
+          that help companies in Indonesia manage talent development and create
+          fair, effective employee performance assessments. Outside of work, I
+          also curious and like to tinker with technologies and also
+          occassionally wrote things that interests me in my{" "}
+          <a className='underline' href="https://blog.zakyabdur.tech/">blog</a>
         </p>
         <div className="flex flex-col sm:flex-row gap-3 mt-2 justify-center md:justify-start">
           <button
-            onClick={() => scrollTo('contact')}
+            onClick={() => scrollTo("contact")}
             className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
           >
             Contact me
           </button>
           <button
-            onClick={() => scrollTo('projects')}
+            onClick={() => scrollTo("projects")}
             className="px-6 py-2.5 rounded-lg border border-border font-medium hover:bg-accent transition-colors"
           >
             View work
@@ -55,5 +69,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
