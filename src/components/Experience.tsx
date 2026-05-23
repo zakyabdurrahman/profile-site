@@ -75,7 +75,8 @@ function ExperienceCard({ exp }: { exp: Experience }) {
 
 export default function Experience() {
   return (
-    <section className="px-6 py-16 max-w-3xl mx-auto space-y-6">
+    <section className="px-6 py-16 max-w-3xl mx-auto space-y-6 mb-6">
+      <h2 className="text-2xl md:text-3xl font-bold text-center">Professional Experience</h2>
       {experiences.map((exp) => (
         <ExperienceCard key={exp.company} exp={exp} />
       ))}
