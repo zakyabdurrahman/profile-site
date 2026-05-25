@@ -21,28 +21,28 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Project Name',
+    title: 'Project Name3',
     type: 'Work',
     description: 'A brief description of the work project and what was accomplished.',
     link: '#',
     linkLabel: 'View Project',
   },
   {
-    title: 'Project Name',
+    title: 'Project Name1',
     type: 'Work',
     description: 'A brief description of the work project and what was accomplished.',
     link: '#',
     linkLabel: 'View Project',
   },
   {
-    title: 'Project Name',
+    title: 'Project Name2',
     type: 'Personal',
     description: 'A brief description of the personal project and its purpose.',
     link: '#',
     linkLabel: 'View on GitHub',
   },
   {
-    title: 'Project Name',
+    title: 'Project Name4s',
     type: 'Personal',
     description: 'A brief description of the personal project and its purpose.',
     link: '#',
@@ -120,18 +120,12 @@ export default function Projects() {
   const [count, setCount] = useState(0)
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
-  const scheduleResume = useCallback(() => {
-    clearTimeout(resumeTimeoutRef.current)
-    resumeTimeoutRef.current = setTimeout(() => {
-      api?.plugins()?.autoplay?.play()
-    }, 5000)
-  }, [api])
+  
 
-  const stopAutoplay = useCallback(() => {
-    api?.plugins()?.autoplay?.stop()
-  }, [api])
+  
 
   useEffect(() => {
+    
     if (!api) return
     setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap())
@@ -139,40 +133,21 @@ export default function Projects() {
     const onSelect = () => setCurrent(api.selectedScrollSnap())
     api.on('select', onSelect)
 
-    const root = api.rootNode()
-
-    const onPointerDown = () => {
-      stopAutoplay()
-      scheduleResume()
-    }
-    root.addEventListener('pointerdown', onPointerDown)
-
-    const onMouseEnter = () => stopAutoplay()
-    const onMouseLeave = () => {
-      if (!api.plugins()?.autoplay?.isPlaying()) {
-        api.plugins()?.autoplay?.play()
-      }
-    }
-    root.addEventListener('mouseenter', onMouseEnter)
-    root.addEventListener('mouseleave', onMouseLeave)
 
     return () => {
       clearTimeout(resumeTimeoutRef.current)
       api.off('select', onSelect)
-      root.removeEventListener('pointerdown', onPointerDown)
-      root.removeEventListener('mouseenter', onMouseEnter)
-      root.removeEventListener('mouseleave', onMouseLeave)
+      
     }
-  }, [api, stopAutoplay, scheduleResume])
+  }, [api])
 
   const handleDotClick = useCallback((index: number) => {
     api?.scrollTo(index)
-    stopAutoplay()
-    scheduleResume()
-  }, [api, stopAutoplay, scheduleResume])
+  }, [api])
 
   const sectionRef = useRef<HTMLElement>(null)
 
+  //this only called once when scroll to bottom and 
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
@@ -182,6 +157,7 @@ export default function Projects() {
           el.style.opacity = '1'
           el.style.transform = 'translateY(0)'
           observer.disconnect()
+        
         }
       },
       { threshold: 0.1 }
@@ -205,8 +181,8 @@ export default function Projects() {
           plugins={[
             Autoplay({
               delay: 5000,
-              stopOnInteraction: false,
-              stopOnMouseEnter: false,
+              stopOnInteraction: true,
+              stopOnMouseEnter: true,
             }),
           ]}
           setApi={setApi}
