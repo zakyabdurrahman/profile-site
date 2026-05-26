@@ -157,7 +157,7 @@ export default function Projects() {
     >
       <h2 className="text-2xl md:text-3xl font-bold text-center">Projects</h2>
 
-      <div className="max-w-7xl mx-auto mt-8">
+      <div className="max-w-3xl mx-auto mt-8">
         <Carousel
           opts={{ loop: true }}
           plugins={[
