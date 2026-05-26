@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
+import img from '../assets/phiro.png'
 import {
   Carousel,
   CarouselContent,
@@ -21,33 +22,14 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Project Name3',
+    title: 'Phiro Neo (formerly Phiro HCMS)',
     type: 'Work',
-    description: 'A brief description of the work project and what was accomplished.',
-    link: '#',
-    linkLabel: 'View Project',
+    description: 'I work as an developer with the team behind Phiro Neo, and all-in-one integrated HRIS product with all features you would need from Employee Attendance, Time Management to Performance Assessment. I mostly worked on the Performance, Job Portal and LMS Module. Developed features to make managing score calibration and training easier',
+    link: 'https://phiraka.com/produk/phiro-hcms/',
+    linkLabel: 'View Product Page',
+    image: img
   },
-  {
-    title: 'Project Name1',
-    type: 'Work',
-    description: 'A brief description of the work project and what was accomplished.',
-    link: '#',
-    linkLabel: 'View Project',
-  },
-  {
-    title: 'Project Name2',
-    type: 'Personal',
-    description: 'A brief description of the personal project and its purpose.',
-    link: '#',
-    linkLabel: 'View on GitHub',
-  },
-  {
-    title: 'Project Name4s',
-    type: 'Personal',
-    description: 'A brief description of the personal project and its purpose.',
-    link: '#',
-    linkLabel: 'View on GitHub',
-  },
+  
 ]
 
 function ProjectCard({ project }: { project: Project }) {
