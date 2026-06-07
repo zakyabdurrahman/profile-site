@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import img from '../assets/phiro.png'
+import nanori from '../assets/nanori.png'
 import {
   Carousel,
   CarouselContent,
@@ -16,21 +17,40 @@ interface Project {
   type: 'Work' | 'Personal'
   description: string
   image?: string
-  link: string
-  linkLabel: string
+  links: { url: string; label: string }[]
 }
 
 const projects: Project[] = [
   {
-    title: 'Phiro Neo (formerly Phiro HCMS)',
-    type: 'Work',
-    description: 'I work as an developer with the team behind Phiro Neo, and all-in-one integrated HRIS product with all features you would need from Employee Attendance, Time Management to Performance Assessment. I mostly worked on the Performance, Job Portal and LMS Module. Developed features to make managing score calibration and training easier',
-    link: 'https://phiraka.com/produk/phiro-hcms/',
-    linkLabel: 'View Product Page',
-    image: img
+    title: "Phiro Neo (formerly Phiro HCMS)",
+    type: "Work",
+    description:
+      "I work as an developer with the team behind Phiro Neo, and all-in-one integrated HRIS product with all features you would need from Employee Attendance, Time Management to Performance Assessment. I mostly worked on the Performance, Job Portal and LMS Module. I Developed features to make managing and monitoring employee performance and training easier",
+    links: [
+      {
+        url: "https://phiraka.com/produk/phiro-hcms/",
+        label: "View Product Page",
+      },
+    ],
+    image: img,
   },
-  
-]
+  {
+    title: "Nanori",
+    type: "Personal",
+    description: `Reading Japanese names can be notoriously difficult, even for native speakers, due to complex kanji combinations and obscure nanori (name-specific) readings. Standard dictionaries often fall short, leaving users to guess the correct pronunciation. This web application streamlines the process by dynamically generating and displaying all possible combinations of kunyomi, onyomi, and nanori readings for any given kanji combination. Additionally, it integrates a comprehensive Japanese names and kanjis dictionary featuring over 700,000 entries sourced from KANJIDIC2, an open source japanese english kanji dictionary made by Jim Breen, allowing users to instantly verify authentic and rare names.`,
+    links: [
+      {
+        url: "https://github.com/zakyabdurrahman/nanori",
+        label: "View Source Code",
+      },
+      {
+        url: "https://www.youtube.com/watch?v=2GHc0xwvNE0",
+        label: "View Showcase",
+      },
+    ],
+    image: nanori,
+  },
+];
 
 function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -84,14 +104,19 @@ function ProjectCard({ project }: { project: Project }) {
         {project.description}
       </p>
 
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-auto text-sm font-medium text-primary hover:underline"
-      >
-        {project.linkLabel}
-      </a>
+      <div className="mt-auto flex flex-wrap gap-2">
+        {project.links.map((l) => (
+          <a
+            key={l.label}
+            href={l.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-primary hover:underline me-4"
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
     </div>
   )
 }
