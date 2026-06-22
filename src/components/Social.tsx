@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { GithubLogo, GithubLogoIcon, LinkedinLogo, LinkedinLogoIcon } from '@phosphor-icons/react'
+import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react'
 
 export default function Social() {
   const sectionRef = useRef<HTMLElement>(null)
