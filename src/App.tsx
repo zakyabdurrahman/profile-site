@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import Social from './components/Social'
 import './App.css'
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
         <Experience />
         <Projects />
         <Skills />
+        <Social />
       </main>
     </>
   )

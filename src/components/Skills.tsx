@@ -4,12 +4,18 @@ import jsLogo from '@/assets/js.png'
 import tsLogo from '@/assets/ts.png'
 import pgsqlLogo from '@/assets/pgsql.png'
 import python from '@/assets/python.png'
+import php from "@/assets/php.png"
+import java from "@/assets/java.png"
+import react from "@/assets/react.svg"
 
 const skills = [
   { name: "JavaScript", src: jsLogo },
   { name: "TypeScript", src: tsLogo },
   { name: "PostgreSQL", src: pgsqlLogo },
-  { name: "Python", src: python },
+  { name: "Python", src: python, },
+  { name: "PHP", src: php},
+  { name: "Java", src: java },
+  { name: "React", src: react }
 ];
 
 export default function Skills() {
