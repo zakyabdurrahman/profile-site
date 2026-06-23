@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import img from '../assets/phiro.png'
 import nanori from '../assets/nanori.png'
+import stockpanel from '../assets/spanel.png'
 import {
   Carousel,
   CarouselContent,
@@ -50,6 +51,22 @@ const projects: Project[] = [
     ],
     image: nanori,
   },
+  {
+    title: "Stockpanel",
+    type: "Personal",
+    description: "A lightweight, secure native desktop application designed to track net capital allocations, realized returns (gains from selling stock), and dividends. Written using Java, JavaFX library, and Hibernate ORM",
+    links: [
+      {
+        url: "https://github.com/zakyabdurrahman/stock-panel",
+        label: "View Source Code"
+      }, 
+      {
+        url: "https://github.com/zakyabdurrahman/stock-panel/releases/tag/v1.1.0",
+        label: "Windows Installer"
+      }
+    ],
+    image: stockpanel
+  }
 ];
 
 function ProjectCard({ project }: { project: Project }) {
